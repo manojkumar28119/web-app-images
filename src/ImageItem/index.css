@@ -3,6 +3,7 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 .image{
     width: 100%;
@@ -26,10 +27,23 @@
     }
  }
 
- .description{
-    margin: 0px;
-    color: #F1F1F1;
-    font-size: 10px;
-    text-align: left;
+
+ .item{
+    border-radius: 10px;
+ }
+ .popup-card{
+    border-radius: 10px;
+    background-color: #1c1e21;
+    padding: 10px;
+    width: 200px;
+ }
+ .popup-text{
+    color: #ffffff;
+    font-size: 12px;
  }
  
+ .title{
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+ }

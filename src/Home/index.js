@@ -2,13 +2,14 @@ import {useState,useEffect} from "react"
 import {MagnifyingGlass} from "react-loader-spinner"
 import { CiSearch } from "react-icons/ci";
 import ImageItem from "../ImageItem"
+import {SearchKeyBtn} from "./styledComonent"
 
 import "./index.css"
 
 const Home = () => {
     const [currentData,setData] = useState([])
     const [apiStatus,setApiStatus] = useState(false)
-    const [query,setQuery] = useState("mom")
+    const [query,setQuery] = useState("")
 
     useEffect(() => {
         setApiStatus(false)
@@ -34,7 +35,6 @@ const Home = () => {
         getData();
     },[query])
 
-    console.log(currentData)
 
     const renderLoadingView = () => (
         <div className="loader-card">
@@ -51,31 +51,52 @@ const Home = () => {
         </div>
     )
 
+    const SearchImages = () => (
+        <div className="not-found"><p>Search for Images 🤩</p></div>
+    )
+
     const renderImages = () =>(
-    
         currentData.length === 0 ? (<div className="not-found"><p>Images Not Found😢</p></div>) :(
+            <>
+            <div className="result-text-card">
+                <p className="result-text">Results for {query}</p>
+            </div>
             <div className="images-card">
                 {currentData.map((each) => <ImageItem key={each.id} item = {each}/> )}
             </div>
+            </>
         )
     )
     
+    const onClickSearchKeyBtn = (event) => {
+         setQuery(event.target.textContent)
+    }
 
     const onChangeSearchq = (event) => {
         setQuery(event.target.value)
     }
 
-    console.log(query)
 
+    const renderSearchKeys = () => ( 
+        <div className="search-keys-card">
+            <SearchKeyBtn onClick={onClickSearchKeyBtn}>Mountain</SearchKeyBtn>
+            <SearchKeyBtn onClick={onClickSearchKeyBtn}>Flowers</SearchKeyBtn>
+            <SearchKeyBtn onClick={onClickSearchKeyBtn}>Beaches</SearchKeyBtn>
+            <SearchKeyBtn onClick={onClickSearchKeyBtn}>Cities</SearchKeyBtn>
+        </div>
+    )
+
+ 
     return (
         <div className="main-card">
             <div className="search-card">
-                <input type="search" onChange={onChangeSearchq} placeholder="Search an Image Item" className="input"/>
+                <input type="search" onChange={onChangeSearchq} placeholder="Search an Image" className="input"/>
                 <div className="icon-card">
                     <CiSearch className="icon"/>
                 </div>
             </div>
-            {apiStatus === true? renderImages(): renderLoadingView()}
+            {renderSearchKeys()}
+            {query.length !== 0 ? apiStatus === true? renderImages(): renderLoadingView() : SearchImages() }
         </div>
     )
 }

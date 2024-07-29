@@ -9,10 +9,11 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    font-family: 'Roboto';
 }
  
 .search-card{
-    margin-top: 120px;
+    margin-top: 80px;
     background-color: transparent;
     border: solid 1px #F1F1F1;
     width: 50%;
@@ -20,17 +21,9 @@
     height: 40px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
  }
- @media screen and (max-width:760px) {
-    .search-card{
-        width: 60%;
-    }
- }
- @media screen and (max-width:560px) {
-    .search-card{
-        width: 90%;
-    }
- }
+ 
 .input{
     width: 85%;
     height: 100%;
@@ -42,10 +35,10 @@
     margin-left: 5px;
 }
 .icon-card{
-    width: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 15px;
 }
 .icon{
     color: #F1F1F1;
@@ -58,6 +51,30 @@
     margin-top: 50px;
     justify-content: center;
 }
+.result-text-card{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+@media screen and (max-width:760px) {
+    .search-card{
+        width: 60%;
+    }
+ }
+ @media screen and (max-width:560px) {
+    .search-card{
+        width: 90%;
+    }
+ }
+
+ @media screen and (min-width:1100px) {
+    .result-text-card{
+        width: 80%;
+    }
+ }
+
 .not-found{
     color: #F1F1F1;
     height: 70vh;
@@ -66,4 +83,18 @@
     align-items: center;
     font-size: 20px;
     font-weight: 500;
+}
+.search-keys-card{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    max-width: 600px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.result-text{
+    color: #F7F9F2;
+    font-weight: 700;
+    font-size: 22px;
+    text-decoration: underline;
 }
