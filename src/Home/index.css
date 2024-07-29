@@ -49,7 +49,6 @@
     width: 100%;
     max-width: 1000px;
     margin-top: 50px;
-    justify-content: center;
 }
 .result-text-card{
     width: 90%;
@@ -66,6 +65,9 @@
  @media screen and (max-width:560px) {
     .search-card{
         width: 90%;
+    }
+    .images-card{
+        justify-content: center;
     }
  }
 
